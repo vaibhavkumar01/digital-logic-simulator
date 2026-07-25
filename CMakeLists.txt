@@ -11,6 +11,8 @@ add_executable(DigitalLogicSimulator)
 target_sources(DigitalLogicSimulator
     PRIVATE
         src/main.cpp
+        src/Gate.cpp
+        src/AndGate.cpp
 )
 
 target_include_directories(DigitalLogicSimulator
