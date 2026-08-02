@@ -4,12 +4,12 @@ AndGate::AndGate(std::size_t inputCount) : Gate(inputCount) {}
 
 void AndGate::evaluate()
 {
-    output = 1;
+    output = true;
     for (bool input : inputs)
     {
         if (!input)
         {
-            output = 0;
+            output = false;
             break;
         }
     }

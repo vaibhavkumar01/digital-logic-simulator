@@ -2,93 +2,40 @@
 #include "Gate.h"
 #include <iostream>
 
+void printTruthTable(Gate& gate)
+{
+    const std::size_t inputCount = gate.getInputCount();
+
+    const std::size_t rows = 1ULL << inputCount;
+
+    for (std::size_t row = 0; row < rows; row++)
+    {
+        for (std::size_t bit = 0; bit < inputCount; bit++)
+        {
+            bool value = (row >> (inputCount - 1 - bit)) & 1;
+
+            gate.setInput(bit + 1, value);
+
+            std::cout << value << " ";
+        }
+
+        gate.evaluate();
+
+        std::cout << "| " << gate.getOutput() << '\n';
+    }
+}
+
 int main()
 {
-    std::cout << "Welcome to Digital Logic Simulator" << std::endl;
-    bool ans;
-    AndGate and_gate_2_pin(2);
+    std::cout << "2-input AND\n\n";
 
-    and_gate_2_pin.setInput(1, 0);
-    and_gate_2_pin.setInput(2, 0);
-    and_gate_2_pin.evaluate();
-    ans = and_gate_2_pin.getOutput();
-    std::cout << ans;
+    AndGate gate2(2);
 
-    and_gate_2_pin.setInput(1, 0);
-    and_gate_2_pin.setInput(2, 1);
-    and_gate_2_pin.evaluate();
-    ans = and_gate_2_pin.getOutput();
-    std::cout << ans;
+    printTruthTable(gate2);
 
-    and_gate_2_pin.setInput(1, 1);
-    and_gate_2_pin.setInput(2, 0);
-    and_gate_2_pin.evaluate();
-    ans = and_gate_2_pin.getOutput();
-    std::cout << ans;
+    std::cout << "\n3-input AND\n\n";
 
-    and_gate_2_pin.setInput(1, 1);
-    and_gate_2_pin.setInput(2, 1);
-    and_gate_2_pin.evaluate();
-    ans = and_gate_2_pin.getOutput();
-    std::cout << ans;
+    AndGate gate3(3);
 
-    AndGate and_gate_3_pin(3);
-
-    and_gate_3_pin.setInput(1, 0);
-    and_gate_3_pin.setInput(2, 0);
-    and_gate_3_pin.setInput(3, 0);
-    and_gate_3_pin.evaluate();
-    ans = and_gate_3_pin.getOutput();
-    std::cout << ans;
-
-    and_gate_3_pin.setInput(1, 0);
-    and_gate_3_pin.setInput(2, 0);
-    and_gate_3_pin.setInput(3, 1);
-    and_gate_3_pin.evaluate();
-    ans = and_gate_3_pin.getOutput();
-    std::cout << ans;
-
-    and_gate_3_pin.setInput(1, 0);
-    and_gate_3_pin.setInput(2, 1);
-    and_gate_3_pin.setInput(3, 0);
-    and_gate_3_pin.evaluate();
-    ans = and_gate_3_pin.getOutput();
-    std::cout << ans;
-
-    and_gate_3_pin.setInput(1, 0);
-    and_gate_3_pin.setInput(2, 1);
-    and_gate_3_pin.setInput(3, 1);
-    and_gate_3_pin.evaluate();
-    ans = and_gate_3_pin.getOutput();
-    std::cout << ans;
-
-    and_gate_3_pin.setInput(1, 1);
-    and_gate_3_pin.setInput(2, 0);
-    and_gate_3_pin.setInput(3, 0);
-    and_gate_3_pin.evaluate();
-    ans = and_gate_3_pin.getOutput();
-    std::cout << ans;
-
-    and_gate_3_pin.setInput(1, 1);
-    and_gate_3_pin.setInput(2, 0);
-    and_gate_3_pin.setInput(3, 1);
-    and_gate_3_pin.evaluate();
-    ans = and_gate_3_pin.getOutput();
-    std::cout << ans;
-
-    and_gate_3_pin.setInput(1, 1);
-    and_gate_3_pin.setInput(2, 1);
-    and_gate_3_pin.setInput(3, 0);
-    and_gate_3_pin.evaluate();
-    ans = and_gate_3_pin.getOutput();
-    std::cout << ans;
-
-    and_gate_3_pin.setInput(1, 1);
-    and_gate_3_pin.setInput(2, 1);
-    and_gate_3_pin.setInput(3, 1);
-    and_gate_3_pin.evaluate();
-    ans = and_gate_3_pin.getOutput();
-    std::cout << ans;
-
-    return 0;
+    printTruthTable(gate3);
 }
