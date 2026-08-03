@@ -13,6 +13,13 @@ target_sources(DigitalLogicSimulator
         src/main.cpp
         src/Gate.cpp
         src/AndGate.cpp
+        src/OrGate.cpp
+        src/NotGate.cpp
+        src/NandGate.cpp
+        src/NorGate.cpp
+        src/XorGate.cpp
+        src/XnorGate.cpp
+        src/TruthTableGenerator.cpp
 )
 
 target_include_directories(DigitalLogicSimulator

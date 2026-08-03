@@ -1,41 +1,47 @@
 #include "AndGate.h"
-#include "Gate.h"
+#include "NandGate.h"
+#include "NorGate.h"
+#include "NotGate.h"
+#include "OrGate.h"
+#include "TruthTableGenerator.h"
+#include "XnorGate.h"
+#include "XorGate.h"
+
 #include <iostream>
-
-void printTruthTable(Gate& gate)
-{
-    const std::size_t inputCount = gate.getInputCount();
-
-    const std::size_t rows = 1ULL << inputCount;
-
-    for (std::size_t row = 0; row < rows; row++)
-    {
-        for (std::size_t bit = 0; bit < inputCount; bit++)
-        {
-            bool value = (row >> (inputCount - 1 - bit)) & 1;
-
-            gate.setInput(bit + 1, value);
-
-            std::cout << value << " ";
-        }
-
-        gate.evaluate();
-
-        std::cout << "| " << gate.getOutput() << '\n';
-    }
-}
 
 int main()
 {
-    std::cout << "2-input AND\n\n";
+    std::cout << "========== AND Gate ==========\n\n";
+    AndGate andGate2(2);
+    TruthTableGenerator::print(andGate2);
 
-    AndGate gate2(2);
+    std::cout << "\n========== 3-Input AND Gate ==========\n\n";
+    AndGate andGate3(3);
+    TruthTableGenerator::print(andGate3);
 
-    printTruthTable(gate2);
+    std::cout << "\n========== OR Gate ==========\n\n";
+    OrGate orGate(2);
+    TruthTableGenerator::print(orGate);
 
-    std::cout << "\n3-input AND\n\n";
+    std::cout << "\n========== NOT Gate ==========\n\n";
+    NotGate notGate;
+    TruthTableGenerator::print(notGate);
 
-    AndGate gate3(3);
+    std::cout << "\n========== NAND Gate ==========\n\n";
+    NandGate nandGate(2);
+    TruthTableGenerator::print(nandGate);
 
-    printTruthTable(gate3);
+    std::cout << "\n========== NOR Gate ==========\n\n";
+    NorGate norGate(2);
+    TruthTableGenerator::print(norGate);
+
+    std::cout << "\n========== XOR Gate ==========\n\n";
+    XorGate xorGate(2);
+    TruthTableGenerator::print(xorGate);
+
+    std::cout << "\n========== XNOR Gate ==========\n\n";
+    XnorGate xnorGate(2);
+    TruthTableGenerator::print(xnorGate);
+
+    return 0;
 }
