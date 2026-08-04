@@ -11,6 +11,7 @@
 
 int main()
 {
+    std::cout << "Welcome to Digital Logic Simulator.\n\n";
     std::cout << "========== AND Gate ==========\n\n";
     AndGate andGate2(2);
     TruthTableGenerator::print(andGate2);
