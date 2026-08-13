@@ -20,6 +20,7 @@ target_sources(DigitalLogicSimulator
         src/XorGate.cpp
         src/XnorGate.cpp
         src/TruthTableGenerator.cpp
+        src/Circuit.cpp
 )
 
 target_include_directories(DigitalLogicSimulator

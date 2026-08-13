@@ -1,30 +1,30 @@
-# \# Digital Logic Simulator (Version 1.0)
+# Digital Logic Simulator (Version 1.0)
 
-## \## 1. Problem Statement
+## 1. Problem Statement
 Students often understand digital logic theoretically but have limited opportunities to explore how circuits behave interactively while also learning software engineering. This project aims to build a modular Digital Logic Simulator in modern C++ that enables users to create and simulate digital circuits while serving as a portfolio-quality demonstration of software design and digital electronics concepts.
 
-## \## 2. Target Users
+## 2. Target Users
 * ECE students
 * Professors
 * Recruiters
 * Developers reading the GitHub repository
 * Myself six months later
 
-## \## 3. Project Goals
+## 3. Project Goals
 
-#### \### Primary Goals
+#### Primary Goals
 1. Simulate combinational logic circuits.
 2. Provide accurate logical outputs.
 3. Be modular and extensible.
 4. Demonstrate modern C++ design.
 
-#### \### Secondary Goals
+#### Secondary Goals
 1. GUI
 2. Circuit saving/loading
 3. Timing simulation
 4. Custom gates
 
-## \## 4. Learning Goals
+## 4. Learning Goals
 
 1. Improve modern C++
 2. Learn graph algorithms
@@ -34,8 +34,8 @@ Students often understand digital logic theoretically but have limited opportuni
 
 
 
-## \## 5. Project Scope
-#### \### In Scope
+## 5. Project Scope
+#### In Scope
 
 * Basic logic gates
 * Wire connections
@@ -44,7 +44,7 @@ Students often understand digital logic theoretically but have limited opportuni
 * Unit tests
 * Documentation
 
-#### \### Out of Scope
+#### Out of Scope
 * FPGA synthesis
 * Verilog support
 * Analog simulation
@@ -52,7 +52,7 @@ Students often understand digital logic theoretically but have limited opportuni
 * HDL compiler
 
 
-## \## 6. Functional Requirements
+## 6. Functional Requirements
 
 Following are the functional requirements of this project:
 
@@ -67,7 +67,7 @@ Following are the functional requirements of this project:
 9. The system shall generate truth tables.
 
 
-## \## 7. Non-Functional Requirements
+## 7. Non-Functional Requirements
 
 Following are the non-functional requirements of this project:
 
@@ -79,7 +79,7 @@ Following are the non-functional requirements of this project:
 6. Documentation: Every public class documented.
 
 
-## \## 8. Constraints
+## 8. Constraints
 
 ### Technical Constraints
 - C++17 or newer
@@ -105,7 +105,7 @@ How do we know Version 1.0 is complete?
 6. Project builds with CMake on a clean machine.
 7. README enables another developer to build and run the project.
 
-## \## 10. Assumptions
+## 10. Assumptions
 
 * Logic values are binary (0 and 1).
 * Gates have zero propagation delay.
@@ -113,7 +113,7 @@ How do we know Version 1.0 is complete?
 * The simulator models digital logic only.
 
 
-## \## 11. Risks
+## 11. Risks
 
 * GUI implementation may require additional learning.
 * Graph-based evaluation may become complex.
@@ -121,7 +121,7 @@ How do we know Version 1.0 is complete?
 * Limited development time.
 
 
-## \## 12. Design Principles
+## 12. Design Principles
 
 * Separation of Concerns
 * SOLID Principles
@@ -131,7 +131,7 @@ How do we know Version 1.0 is complete?
 * Readability
 
 
-## \## 13. Version 1.0 Definition
+## 13. Version 1.0 Definition
 
 Version 1.0 will include:
 
@@ -151,7 +151,7 @@ It will not include:
 * Plugins
 
 
-## \## 14. Revision History
+## 14. Revision History
 
 **| Version  |    Date     |        Changes       |**
 
