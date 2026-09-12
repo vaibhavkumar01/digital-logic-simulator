@@ -105,8 +105,7 @@ int main()
     wireCircuit.addGate(std::move(wireOrGate));
 
     // Create a wire and transfer ownership to the circuit.
-    auto wire = std::make_unique<Wire>(andPtr, orPtr, 1);
-    wireCircuit.addWire(std::move(wire));
+    wireCircuit.connect(andPtr, orPtr, 1);
 
     std::cout << "Gate count: " << wireCircuit.getGateCount() << '\n';
     std::cout << "Wire count: " << wireCircuit.getWireCount() << '\n';

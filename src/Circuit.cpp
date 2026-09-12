@@ -40,6 +40,12 @@ void Circuit::removeWire(std::size_t index)
     wires.erase(wires.begin() + index);
 }
 
+void Circuit::connect(Gate* source, Gate* destination, std::size_t destinationInput)
+{
+    auto wire = std::make_unique<Wire>(source, destination, destinationInput);
+    addWire(std::move(wire));
+}
+
 Wire* Circuit::getWire(std::size_t index)
 {
     assert(index < wires.size());
