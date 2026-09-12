@@ -90,7 +90,6 @@ int main()
     std::cout << "Gate count after removal: " << circuit.getGateCount() << '\n';
 
     // Wire Test
-
     std::cout << "\n========== Wire Test ==========\n\n";
 
     Circuit wireCircuit;
@@ -105,17 +104,21 @@ int main()
     wireCircuit.addGate(std::move(wireAndGate));
     wireCircuit.addGate(std::move(wireOrGate));
 
-    // Connect AND output to OR input 1.
-    Wire wire(andPtr, orPtr, 1);
+    // Create a wire and transfer ownership to the circuit.
+    auto wire = std::make_unique<Wire>(andPtr, orPtr, 1);
+    wireCircuit.addWire(std::move(wire));
+
+    std::cout << "Gate count: " << wireCircuit.getGateCount() << '\n';
+    std::cout << "Wire count: " << wireCircuit.getWireCount() << '\n';
 
     // Test 1: AND output = 1.
     andPtr->setInput(1, true);
     andPtr->setInput(2, true);
     andPtr->evaluate();
 
-    wire.propagate();
+    wireCircuit.getWire(0)->propagate();
 
-    std::cout << "Test 1:\n";
+    std::cout << "\nTest 1:\n";
     std::cout << "AND output: " << andPtr->getOutput() << '\n';
     std::cout << "OR input 1: " << orPtr->getInput(1) << '\n';
 
@@ -124,7 +127,7 @@ int main()
     andPtr->setInput(2, false);
     andPtr->evaluate();
 
-    wire.propagate();
+    wireCircuit.getWire(0)->propagate();
 
     std::cout << "\nTest 2:\n";
     std::cout << "AND output: " << andPtr->getOutput() << '\n';
