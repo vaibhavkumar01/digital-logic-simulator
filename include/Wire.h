@@ -30,6 +30,10 @@ class Wire
      */
     void propagate();
 
+    Gate* getSource() const;
+    Gate* getDestination() const;
+    std::size_t getDestinationInput() const;
+
   private:
     // Non-owning pointer to the gate providing the signal.
     Gate* source;
