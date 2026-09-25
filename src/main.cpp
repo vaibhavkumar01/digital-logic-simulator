@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <memory>
+#include <stdexcept>
 
 int main()
 {
@@ -109,6 +110,16 @@ int main()
 
     std::cout << "Gate count: " << wireCircuit.getGateCount() << '\n';
     std::cout << "Wire count: " << wireCircuit.getWireCount() << '\n';
+
+    // Test duplicate connection.
+    try
+    {
+        wireCircuit.connect(andPtr, orPtr, 1);
+    }
+    catch (const std::invalid_argument& error)
+    {
+        std::cout << "Duplicate connection rejected: " << error.what() << '\n';
+    }
 
     // Test 1: AND output = 1.
     andPtr->setInput(1, true);
