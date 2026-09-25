@@ -57,14 +57,17 @@ Students often understand digital logic theoretically but have limited opportuni
 Following are the functional requirements of this project:
 
 1. The system shall allow users to create logic gates.
-2. The system shall connect outputs to inputs using wires.
-3. The system shall simulate combinational circuits.
-4. The system shall display the logical output (0 or 1) of every output pin after circuit evaluation.
-5. The system shall prevent Output → Output connections.
-6. The system shall prevent Input → Input connections.
-7. The system shall prevent multiple outputs driving the same input.
-8. The system shall detect combinational feedback loops before simulation.
-9. The system shall generate truth tables.
+2. The system shall allow a gate's output to be connected to a specific input of another gate using a wire.
+3. The system shall evaluate a constructed combinational circuit and propagate signals through its connected gates to produce final outputs.
+4. The system shall display the logical output (0 or 1) of every gate after circuit evaluation.
+5. The system shall only allow connections from a gate output to a gate input.
+6. The system shall prevent multiple outputs from driving the same input.
+7. The system shall reject connections involving gates that do not belong to the current circuit.
+8. The system shall reject connections to invalid destination input numbers.
+9. The system shall reject self-connections between a gate and itself.
+10. The system shall evaluate gates in an order that respects the signal dependencies between connected gates.
+11. The system shall detect combinational feedback loops before evaluating a circuit and report a meaningful error.
+12. The system shall generate truth tables for supported combinational circuits.
 
 
 ## 7. Non-Functional Requirements
@@ -93,7 +96,7 @@ Following are the non-functional requirements of this project:
 - Use Git
 
 
-## \## 9. Success Criteria
+## 9. Success Criteria
 
 How do we know Version 1.0 is complete?
 
@@ -104,6 +107,9 @@ How do we know Version 1.0 is complete?
 5. At least 20 automated unit tests pass.
 6. Project builds with CMake on a clean machine.
 7. README enables another developer to build and run the project.
+8. Invalid circuit connections are rejected with meaningful error messages.
+9. Combinational feedback loops are detected before simulation.
+
 
 ## 10. Assumptions
 
@@ -153,8 +159,7 @@ It will not include:
 
 ## 14. Revision History
 
-**| Version  |    Date     |        Changes       |**
-
-**|----------|-------------|----------------------|**
-
-**| 1.0      | 18 Jul 2026 | Initial requirements |**
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0 | 18 Jul 2026 | Initial requirements |
+| 1.1 | 25 Sep 2026 | Refined circuit connection, validation, evaluation, and simulation requirements |
