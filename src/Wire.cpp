@@ -11,3 +11,18 @@ void Wire::propagate()
     // to the specified input of the destination gate.
     destination->setInput(destinationInput, source->getOutput());
 }
+
+Gate* Wire::getSource() const
+{
+    return source;
+}
+
+Gate* Wire::getDestination() const
+{
+    return destination;
+}
+
+std::size_t Wire::getDestinationInput() const
+{
+    return destinationInput;
+}
