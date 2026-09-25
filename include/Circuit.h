@@ -28,4 +28,7 @@ class Circuit
   private:
     std::vector<std::unique_ptr<Gate>> gates;
     std::vector<std::unique_ptr<Wire>> wires;
+
+    bool containsGate(const Gate* gate) const;
+    bool isInputConnected(const Gate* destination, std::size_t destinationInput) const;
 };
