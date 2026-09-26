@@ -82,6 +82,11 @@ void Circuit::connect(Gate* source, Gate* destination, std::size_t destinationIn
         throw std::invalid_argument("Destination gate does not belong to this circuit.");
     }
 
+    if (source == destination)
+    {
+        throw std::invalid_argument("A gate cannot be connected to itself.");
+    }
+
     if (destinationInput == 0 || destinationInput > destination->getInputCount())
     {
         throw std::invalid_argument("Destination input number is out of range.");
@@ -93,6 +98,7 @@ void Circuit::connect(Gate* source, Gate* destination, std::size_t destinationIn
     }
 
     auto wire = std::make_unique<Wire>(source, destination, destinationInput);
+
     addWire(std::move(wire));
 }
 

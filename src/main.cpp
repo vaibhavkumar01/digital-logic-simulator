@@ -121,6 +121,16 @@ int main()
         std::cout << "Duplicate connection rejected: " << error.what() << '\n';
     }
 
+    // Test self-connection.
+    try
+    {
+        wireCircuit.connect(andPtr, andPtr, 1);
+    }
+    catch (const std::invalid_argument& error)
+    {
+        std::cout << "Self-connection rejected: " << error.what() << '\n';
+    }
+
     // Test 1: AND output = 1.
     andPtr->setInput(1, true);
     andPtr->setInput(2, true);
