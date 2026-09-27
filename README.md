@@ -216,9 +216,9 @@ This project is designed to improve my understanding of:
 - [x] Abstract Gate interface
 - [x] Seven basic logic gates
 - [x] Truth table generator
-- [ ] Circuit class
-- [ ] Wire class
-- [ ] Simulation engine
+- [x] Circuit class
+- [x] Wire class
+- 🔄 Simulation engine
 - [ ] Cycle detection
 - [ ] Composite circuits
 - [ ] Sequential logic
