@@ -1,5 +1,6 @@
 #include "Circuit.h"
 
+#include <algorithm>
 #include <cassert>
 #include <stdexcept>
 #include <utility>
@@ -14,6 +15,17 @@ void Circuit::addGate(std::unique_ptr<Gate> gate)
 void Circuit::removeGate(std::size_t index)
 {
     assert(index < gates.size());
+
+    Gate* gateToRemove = gates[index].get();
+
+    wires.erase(std::remove_if(wires.begin(), wires.end(),
+                               [gateToRemove](const std::unique_ptr<Wire>& wire)
+                               {
+                                   return wire->getSource() == gateToRemove ||
+                                          wire->getDestination() == gateToRemove;
+                               }),
+                wires.end());
+
     gates.erase(gates.begin() + index);
 }
 
